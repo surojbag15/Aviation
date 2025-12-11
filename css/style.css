@@ -1,0 +1,126 @@
+@font-face {
+  font-family: "ClashDisplay Medium";
+  src: url("../font/ClashDisplay-Medium.otf");
+}
+
+:root {
+  --medium: "ClashDisplay Medium";
+  --yellow-text: #ddca67;
+  --white-text: #ffffff;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+/*=============* Header Section *================ */
+.header-sec {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #000;
+}
+
+.navbar,
+.navbar-collapsed,
+.navbar-collapsed > ul {
+  display: flex;
+  align-items: center;
+  font-family: var(--medium);
+}
+
+.navbar-collapsed {
+  flex-grow: 1;
+}
+
+.navbar-collapsed > ul {
+  margin: 0 auto;
+}
+
+.nav-items:not(:last-child) {
+  margin-right: 67px;
+}
+.nav-items:first-child .nav-links {
+  color: var(--yellow-text);
+  position: relative;
+  padding: 4px 8px;
+}
+.nav-items:first-child .nav-links::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid var(--yellow-text);
+  border-left: 1px solid var(--yellow-text);
+}
+.nav-items:first-child .nav-links::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 1px solid var(--yellow-text);
+  border-right: 1px solid var(--yellow-text);
+}
+
+.nav-links {
+  color: var(--white-text);
+  font-size: 15px;
+  text-transform: capitalize;
+  position: relative;
+  padding: 4px 8px;
+}
+.nav-links:hover {
+  color: var(--yellow-text);
+}
+.nav-links:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid var(--yellow-text);
+  border-left: 1px solid var(--yellow-text);
+}
+.nav-links:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 1px solid var(--yellow-text);
+  border-right: 1px solid var(--yellow-text);
+}
+.user-btn {
+  margin-left: 44px;
+}
+
+/*=============* Banner Section *================ */
