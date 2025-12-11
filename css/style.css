@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-  max-width: 1320px;
+  max-width: 1550px;
   margin: 0 auto;
   padding: 0 15px;
   width: 100%;
@@ -61,7 +61,7 @@ a {
 }
 
 .nav-items:not(:last-child) {
-  margin-right: 67px;
+  margin-right: 60px;
 }
 .nav-items:first-child .nav-links {
   color: var(--yellow-text);
@@ -73,7 +73,7 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  width: 10px;
+  width: 15px;
   height: 10px;
   border-top: 1px solid var(--yellow-text);
   border-left: 1px solid var(--yellow-text);
@@ -83,7 +83,7 @@ a {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 10px;
+  width: 15px;
   height: 10px;
   border-bottom: 1px solid var(--yellow-text);
   border-right: 1px solid var(--yellow-text);
@@ -91,7 +91,7 @@ a {
 
 .nav-links {
   color: var(--white-text);
-  font-size: 15px;
+  font-size: 20px;
   text-transform: capitalize;
   position: relative;
   padding: 4px 8px;
@@ -104,7 +104,7 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  width: 10px;
+  width: 15px;
   height: 10px;
   border-top: 1px solid var(--yellow-text);
   border-left: 1px solid var(--yellow-text);
@@ -114,7 +114,7 @@ a {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 10px;
+  width: 15px;
   height: 10px;
   border-bottom: 1px solid var(--yellow-text);
   border-right: 1px solid var(--yellow-text);
