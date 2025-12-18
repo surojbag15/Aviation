@@ -19,11 +19,13 @@
   --black: #000;
   --font-arlita: "Arlita";
   --font-Grotesk-Regular: "Clash Grotesk";
+  --golden-gradient: linear-gradient(-12deg, #f1e28c, #090601, #f1e28c);
 }
 
 html,
 body {
   overflow-x: hidden;
+  background: var(--black);
 }
 
 * {
@@ -48,6 +50,35 @@ a {
   display: inline-block;
 }
 
+.primary-btn {
+  display: inline-block;
+  padding: 1px;
+  border-radius: 16px;
+  background: var(--golden-gradient);
+}
+.primary-btn > span {
+  padding: 14px 58px;
+  background: var(--black);
+  color: var(--white-text);
+  display: inline-block;
+  font-family: var(--font-Grotesk-Regular);
+  font-size: 25px;
+  border-radius: 16px;
+}
+
+.title-2 {
+  max-width: 901px;
+  color: var(--white-text);
+  font-family: var(--font-arlita);
+  text-transform: capitalize;
+  font-size: 60px;
+  font-weight: 100;
+  margin: 62px auto 82px;
+  text-align: center;
+}
+.title-2 span {
+  color: var(--yellow-text);
+}
 /*=============* Header Section *================ */
 .header-sec {
   background: var(--black);
@@ -189,8 +220,7 @@ a {
 /*=============* Banner Section *================ */
 
 .banner-sec {
-  width: 100%;
-  height: 900px;
+  min-height: 100vh;
   background: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.85),
@@ -199,12 +229,25 @@ a {
       rgba(0, 0, 0, 0)
     ),
     url(../asset/banner-bg.png);
+  background-attachment: fixed;
   background-color: var(--black);
   background-size: cover;
   background-position: right;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
+  position: relative;
+  /* MASK */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .title-1 {
@@ -213,6 +256,7 @@ a {
   font-family: var(--font-arlita);
   text-transform: capitalize;
   font-size: 80px;
+  font-weight: 100;
   line-height: calc(83 / 80);
   margin-bottom: 34px;
 }
@@ -237,6 +281,7 @@ a {
   font-size: 24px;
   color: var(--yellow-text);
   text-transform: capitalize;
+  position: absolute;
 }
 .banner-btn svg {
   margin-left: 21px;
@@ -246,6 +291,65 @@ a {
   border: 2px solid var(--yellow-text);
   background: rgba(8, 8, 6, 1);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+/*=============* Dreamer Section *================ */
+.dreamer-sec {
+  padding: 100px 0 0;
+  text-align: center;
+}
+
+.dreamer-video {
+  background: rgba(43, 43, 43);
+  padding: 23px 26px 23px 25px;
+  border-radius: 30px;
+}
+.dreamer-video > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.dreamer-vdo-brdr {
+  max-width: 1204px;
+  padding: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--yellow-text),
+    transparent
+  );
+  border-radius: 30px;
+  margin: 0 auto;
+  transition: 0.5s linear all;
+  cursor: pointer;
+  position: relative;
+}
+.dreamer-vdo-brdr:hover {
+  filter: drop-shadow(0 0 5px var(--yellow-text));
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 10%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--white-text);
+  backdrop-filter: blur(5px);
+  transition: 0.5s linear all;
+}
+
+.play-icon > img {
+  transform: translateX(3px);
+  object-fit: contain;
 }
 
 /* ======================MEDIA SCREEN================= */
@@ -258,5 +362,82 @@ a {
     display: inline-block;
     color: var(--white-text);
     margin-left: 44px;
+  }
+}
+@media screen and (max-width: 860px) {
+  .title-1 {
+    font-size: 50px;
+    font-weight: 100;
+  }
+  .p1 {
+    max-width: 661px;
+    font-weight: 60;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .title-2 {
+    max-width: 901px;
+    font-size: 40px;
+    font-weight: 80;
+  }
+  .dreamer-video {
+    padding: 17px 20px 17px 20px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .title-1 {
+    font-size: 32px;
+    font-weight: 60;
+  }
+  .p1 {
+    max-width: 661px;
+    font-weight: 40;
+    font-size: 16px;
+  }
+  .banner-btn {
+    border: 1px solid var(--white-text);
+    border-radius: 50px;
+    padding: 19px 29px;
+    font-weight: 40;
+    font-size: 18px;
+  }
+  .dreamer-video {
+    padding: 11px 14px 11px 14px;
+  }
+  .play-icon {
+    width: 50px;
+    height: 50px;
+  }
+  .play-icon > img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+  }
+}
+@media screen and (max-width: 385px) {
+  .search-btn,
+  .user-btn {
+    display: none;
+  }
+  .title-2 {
+    max-width: 901px;
+    font-size: 28px;
+    font-weight: 40;
+  }
+  .primary-btn > span {
+    font-size: 18px;
+  }
+  .dreamer-video {
+    padding: 7px 9px 7px 9px;
+  }
+  .play-icon {
+    width: 35px;
+    height: 35px;
+  }
+  .play-icon > img {
+    width: 11px;
+    height: 11px;
+    object-fit: contain;
   }
 }
