@@ -35,10 +35,19 @@ body {
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1550px;
   margin: 0 auto;
   padding: 0 15px;
   width: 100%;
+}
+.row {
+  margin: 0 -15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.col-3 {
+  width: calc(8.33 * 4);
+  padding: 0 15px;
 }
 
 ul {
@@ -50,13 +59,32 @@ a {
   display: inline-block;
 }
 
-.primary-btn {
+.sub-title {
+  display: flex;
+  align-items: center;
+}
+.sub-title::after,
+.sub-title::before {
+  content: "";
+  display: inline-block;
+  height: 31px;
+  flex-grow: 2;
+  background: url("../asset/right-lines.png") no-repeat center/contain;
+}
+.sub-title::before {
+  background: url("../asset/left-lines.png") no-repeat center/contain;
+}
+
+.primary-title {
   display: inline-block;
   padding: 1px;
   border-radius: 16px;
   background: var(--golden-gradient);
+  position: relative;
+  margin: 0 6px 0;
 }
-.primary-btn > span {
+
+.primary-title > span {
   padding: 14px 58px;
   background: var(--black);
   color: var(--white-text);
@@ -64,20 +92,40 @@ a {
   font-family: var(--font-Grotesk-Regular);
   font-size: 25px;
   border-radius: 16px;
+  text-transform: capitalize;
+  position: relative;
 }
 
 .title-2 {
-  max-width: 901px;
   color: var(--white-text);
   font-family: var(--font-arlita);
   text-transform: capitalize;
   font-size: 60px;
   font-weight: 100;
-  margin: 62px auto 82px;
+  margin: 43px auto 18px;
   text-align: center;
 }
 .title-2 span {
   color: var(--yellow-text);
+}
+
+.paragraph:not(.banner-content > .paragraph) {
+  color: var(--white-text);
+  font-family: var(--font-Grotesk-Regular);
+  text-transform: capitalize;
+  font-size: 22px;
+  font-weight: 50;
+
+  margin: 0 auto 91px;
+}
+
+.title-3 {
+  color: var(--white-text);
+  font-family: var(--font-arlita);
+  text-transform: capitalize;
+  font-size: 29px;
+  font-weight: 100;
+  text-align: center;
 }
 /*=============* Header Section *================ */
 .header-sec {
@@ -104,6 +152,7 @@ a {
 .nav-items {
   margin-right: 60px;
 }
+
 .nav-items:last-child {
   margin-right: 0;
 }
@@ -123,6 +172,7 @@ a {
   border-top: 1px solid var(--yellow-text);
   border-left: 1px solid var(--yellow-text);
 }
+
 .nav-items:first-child .nav-links::after {
   content: "";
   position: absolute;
@@ -140,10 +190,13 @@ a {
   text-transform: capitalize;
   position: relative;
   padding: 4px 8px;
+  transition: 0.5s linear;
 }
+
 .nav-links:hover {
   color: var(--yellow-text);
 }
+
 .nav-links:hover::before {
   content: "";
   position: absolute;
@@ -154,6 +207,7 @@ a {
   border-top: 1px solid var(--yellow-text);
   border-left: 1px solid var(--yellow-text);
 }
+
 .nav-links:hover::after {
   content: "";
   position: absolute;
@@ -164,11 +218,13 @@ a {
   border-bottom: 1px solid var(--yellow-text);
   border-right: 1px solid var(--yellow-text);
 }
+
 .user-btn {
   margin-left: 36px;
   position: relative;
   padding: 4px 8px;
 }
+
 .user-btn:hover::before {
   content: "";
   position: absolute;
@@ -179,6 +235,7 @@ a {
   border-top: 1px solid var(--yellow-text);
   border-left: 1px solid var(--yellow-text);
 }
+
 .user-btn:hover::after {
   content: "";
   position: absolute;
@@ -189,10 +246,12 @@ a {
   border-bottom: 1px solid var(--yellow-text);
   border-right: 1px solid var(--yellow-text);
 }
+
 .search-btn {
   position: relative;
   padding: 4px 8px;
 }
+
 .search-btn:hover::before {
   content: "";
   position: absolute;
@@ -203,6 +262,7 @@ a {
   border-top: 1px solid var(--yellow-text);
   border-left: 1px solid var(--yellow-text);
 }
+
 .search-btn:hover::after {
   content: "";
   position: absolute;
@@ -260,14 +320,15 @@ a {
   line-height: calc(83 / 80);
   margin-bottom: 34px;
 }
-.p1 {
+.banner-content > .paragraph {
   max-width: 661px;
+  letter-spacing: 2px;
+  margin-bottom: 51px;
   color: var(--white-text);
   font-family: var(--font-Grotesk-Regular);
   text-transform: capitalize;
   font-size: 22px;
-  letter-spacing: 2px;
-  margin-bottom: 51px;
+  font-weight: 50;
 }
 
 .banner-btn {
@@ -299,8 +360,12 @@ a {
   text-align: center;
 }
 
+.dreamer-hdr > .title-2 {
+  max-width: 901px;
+  margin: 62px auto 82px;
+}
 .dreamer-video {
-  background: rgba(43, 43, 43);
+  background: rgba(0, 0, 0, 80%);
   padding: 23px 26px 23px 25px;
   border-radius: 30px;
 }
@@ -352,7 +417,59 @@ a {
   object-fit: contain;
 }
 
+/*=============* Card Section *================ */
+
+.hdr-sec {
+  width: 100%;
+  padding: 100px 0 0;
+  text-align: center;
+}
+.card-hdr > .title-2 {
+  max-width: 879px;
+}
+.card-hdr > .paragraph {
+  max-width: 479px;
+}
+
+/* =============card-wrapper============= */
+.card-wrapper {
+  max-width: 1459px;
+  margin: 0 auto;
+}
+
+.services-card {
+  position: relative;
+  margin-bottom: 135px;
+}
+.services-card > img {
+  border-radius: 26px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  position: absolute;
+  padding: 35px 97px 77px 96px;
+  background: rgba(8, 8, 6);
+  color: var(--white-text);
+  border-radius: 33px;
+  bottom: -55px;
+  border: 1px solid rgba(219, 199, 97, 30%);
+  left: 0;
+  right: 0;
+}
+.card-content > p {
+  color: var(--white-text);
+  font-family: var(--font-Grotesk-Regular);
+  text-transform: capitalize;
+  font-size: 22px;
+  font-weight: 50;
+  margin-top: 10px;
+}
+
 /* ======================MEDIA SCREEN================= */
+
 @media screen and (max-width: 1200px) {
   .nav-items {
     display: none;
@@ -369,7 +486,7 @@ a {
     font-size: 50px;
     font-weight: 100;
   }
-  .p1 {
+  .paragraph {
     max-width: 661px;
     font-weight: 60;
     font-size: 18px;
@@ -385,12 +502,13 @@ a {
     padding: 17px 20px 17px 20px;
   }
 }
+
 @media screen and (max-width: 560px) {
   .title-1 {
     font-size: 32px;
     font-weight: 60;
   }
-  .p1 {
+  .paragraph {
     max-width: 661px;
     font-weight: 40;
     font-size: 16px;
@@ -415,6 +533,7 @@ a {
     object-fit: contain;
   }
 }
+
 @media screen and (max-width: 385px) {
   .search-btn,
   .user-btn {
@@ -425,7 +544,7 @@ a {
     font-size: 28px;
     font-weight: 40;
   }
-  .primary-btn > span {
+  .primary-title > span {
     font-size: 18px;
   }
   .dreamer-video {
