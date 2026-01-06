@@ -749,10 +749,7 @@ a {
 }
 
 /* ======================Join Section================= */
-.subtract-img {
-  max-width: 696px;
-  min-height: 1432px;
-}
+
 .subtract-img > img {
   width: 100%;
   height: 100%;
@@ -953,6 +950,20 @@ a {
   .right-col {
     padding: 0 15px 12px;
   }
+  .subtract-img {
+    display: none;
+  }
+  .join-sec-content,
+  .join-sec-content > .title-2 {
+    text-align: center;
+  }
+  .join-sec-content p {
+    max-width: none;
+    text-align: center;
+  }
+  .form-card {
+    margin: 0 auto;
+  }
 }
 @media screen and (max-width: 860px) {
   .title-1 {
@@ -961,9 +972,12 @@ a {
   }
 
   .banner-content .paragraph {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 36px;
     max-width: 90%;
+  }
+  .paragraph:not(.banner-content > .paragraph) {
+    font-size: 18px;
   }
   .testi-card {
     display: block;
@@ -984,6 +998,12 @@ a {
   }
   .card-row {
     margin: 30px -15px 12px;
+  }
+  .big {
+    font-size: 100px;
+  }
+  .form-btn > img {
+    display: none;
   }
 }
 @media screen and (max-width: 750px) {
