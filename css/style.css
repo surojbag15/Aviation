@@ -56,7 +56,7 @@ body {
   flex-wrap: wrap;
 }
 .col-3 {
-  width: calc(8.33 * 4);
+  width: calc(8.33% * 4);
   padding: 0 15px;
 }
 
@@ -136,7 +136,7 @@ a {
   margin: 43px auto 18px;
   text-align: center;
 }
-.title-2 > span,
+.title-2 span,
 .title-3 > span {
   color: var(--yellow-text);
 }
@@ -517,17 +517,20 @@ a {
 
 .services-card {
   position: relative;
-  margin-bottom: 135px;
+  min-width: 451px;
+  margin: 0 auto 135px;
 }
 .services-card > img {
-  border-radius: 26px;
   width: 100%;
   height: 100%;
+  display: block;
+  border-radius: 26px;
   object-fit: cover;
 }
 
 .card-content {
   position: absolute;
+  width: 100%;
   padding: 35px 97px 77px 96px;
   background: rgba(8, 8, 6);
   color: var(--white-text);
@@ -537,10 +540,12 @@ a {
   left: 0;
   right: 0;
 }
+
 .card-content > p {
   color: var(--white-text);
   font-family: var(--font-Grotesk-Regular);
   text-transform: capitalize;
+  text-align: center;
   font-size: 22px;
   font-weight: 50;
   margin-top: 10px;
@@ -555,7 +560,7 @@ a {
   position: relative;
   margin-bottom: 40px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 }
 .services-row:last-child {
   margin-bottom: 0;
@@ -573,8 +578,6 @@ a {
   margin: auto 0;
 }
 .text {
-  text-align: left;
-  max-width: 540px;
   color: var(--white-text);
   font-family: var(--font-Grotesk-Regular);
   text-transform: capitalize;
@@ -591,7 +594,9 @@ a {
 .services-image > img {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
+  border-radius: 20px;
 }
 
 /*=============* Offer Section *================ */
@@ -858,6 +863,14 @@ a {
 /* ======================MEDIA SCREEN================= */
 
 @media screen and (max-width: 1200px) {
+  .title-2 {
+    font-size: 48px;
+  }
+
+  .title-3 {
+    font-size: 34px;
+  }
+
   .nav-items {
     display: none;
   }
@@ -867,16 +880,43 @@ a {
     color: var(--white-text);
     margin-left: 44px;
   }
+  .services-row {
+    padding: 50px 40px;
+    border-radius: 50px;
+  }
+
+  .services-row::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .text {
+    font-size: 19px;
+    margin-bottom: 36px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .column {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .services-image {
+    margin-top: 20px;
+  }
 }
 @media screen and (max-width: 860px) {
   .title-1 {
-    font-size: 50px;
-    font-weight: 100;
+    font-size: 56px;
+    margin-bottom: 26px;
   }
-  .paragraph {
-    max-width: 661px;
-    font-weight: 60;
+
+  .banner-content .paragraph {
     font-size: 18px;
+    margin-bottom: 36px;
+    max-width: 90%;
   }
 }
 @media screen and (max-width: 750px) {
@@ -890,23 +930,41 @@ a {
   }
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 576px) {
   .title-1 {
-    font-size: 32px;
-    font-weight: 60;
+    font-size: 36px;
+    margin-bottom: 20px;
   }
-  .paragraph {
-    max-width: 661px;
-    font-weight: 40;
-    font-size: 16px;
+  .title-3 {
+    font-size: 26px;
   }
-  .banner-btn {
-    border: 1px solid var(--white-text);
-    border-radius: 50px;
-    padding: 19px 29px;
-    font-weight: 40;
-    font-size: 18px;
+
+  /* ==Banner-sec== */
+  .banner-sec {
+    padding: 60px 0;
+    min-height: auto;
   }
+
+  .banner-content {
+    text-align: center;
+  }
+
+  .banner-content .paragraph {
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+  }
+
+  .primary-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .primary-btn span {
+    justify-content: center;
+    width: 100%;
+  }
+  /* ==Dreamer-sec== */
   .dreamer-video {
     padding: 11px 14px 11px 14px;
   }
@@ -919,31 +977,31 @@ a {
     height: 22px;
     object-fit: contain;
   }
-}
+  .services-row {
+    padding: 36px 22px;
+    border-radius: 36px;
+  }
 
-@media screen and (max-width: 385px) {
-  .search-btn,
-  .user-btn {
-    display: none;
+  .services-row::before {
+    width: 120px;
+    top: 0;
   }
-  .title-2 {
-    max-width: 901px;
-    font-size: 28px;
-    font-weight: 40;
+
+  .text {
+    font-size: 15px;
+    margin-bottom: 28px;
+    text-align: center;
   }
-  .primary-title > span {
-    font-size: 18px;
+
+  .services-image > img {
+    max-width: auto;
   }
-  .dreamer-video {
-    padding: 7px 9px 7px 9px;
+  .secondary-btn {
+    width: 100%;
+    text-align: center;
   }
-  .play-icon {
-    width: 35px;
-    height: 35px;
-  }
-  .play-icon > img {
-    width: 11px;
-    height: 11px;
-    object-fit: contain;
+  .secondary-btn span {
+    justify-content: center;
+    width: 100%;
   }
 }
