@@ -53,7 +53,7 @@ body {
 .row {
   margin: 0 -15px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 }
 .col-3 {
   width: calc(8.33% * 4);
@@ -230,6 +230,11 @@ a {
 /*=============* Header Section *================ */
 .header-sec {
   background: var(--black);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 }
 
 .navbar,
@@ -299,54 +304,42 @@ a {
   color: var(--yellow-text);
 }
 
-.nav-links:hover::before {
+.nav-links::before,
+.nav-links::after {
   content: "";
   position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.nav-links::before {
   top: 0;
   left: 0;
-  width: 15px;
-  height: 10px;
   border-top: 1px solid var(--yellow-text);
   border-left: 1px solid var(--yellow-text);
 }
 
-.nav-links:hover::after {
-  content: "";
-  position: absolute;
+.nav-links::after {
   bottom: 0;
   right: 0;
-  width: 15px;
-  height: 10px;
   border-bottom: 1px solid var(--yellow-text);
   border-right: 1px solid var(--yellow-text);
 }
 
+.nav-links:hover::before,
+.nav-links:hover::after,
+.active::before,
+.active::after {
+  width: 15px;
+  height: 10px;
+  opacity: 1;
+}
 .user-btn {
   margin-left: 36px;
   position: relative;
   padding: 4px 8px;
-}
-
-.user-btn:hover::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 15px;
-  height: 10px;
-  border-top: 1px solid var(--yellow-text);
-  border-left: 1px solid var(--yellow-text);
-}
-
-.user-btn:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 15px;
-  height: 10px;
-  border-bottom: 1px solid var(--yellow-text);
-  border-right: 1px solid var(--yellow-text);
 }
 
 .search-btn {
@@ -354,26 +347,14 @@ a {
   padding: 4px 8px;
 }
 
-.search-btn:hover::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 15px;
-  height: 10px;
-  border-top: 1px solid var(--yellow-text);
-  border-left: 1px solid var(--yellow-text);
+.search-btn svg path,
+.user-btn svg path {
+  transition: stroke 0.3s ease;
 }
 
-.search-btn:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 15px;
-  height: 10px;
-  border-bottom: 1px solid var(--yellow-text);
-  border-right: 1px solid var(--yellow-text);
+.search-btn:hover svg path,
+.user-btn:hover svg path {
+  stroke: var(--yellow-text);
 }
 
 .menu {
@@ -553,14 +534,17 @@ a {
 
 /*=============* Services Section *================ */
 
+.services-wrapper {
+  overflow: visible;
+}
+
 .services-row {
   padding: 74px 80px;
   border: 2px solid #27220d;
   border-radius: 70px;
-  position: relative;
+  position: sticky;
+  top: 100px;
   margin-bottom: 40px;
-  display: flex;
-  flex-wrap: wrap-reverse;
 }
 .services-row:last-child {
   margin-bottom: 0;
@@ -639,8 +623,10 @@ a {
 .testi-img {
   max-width: 678px;
   min-height: 678px;
+  display: flex;
+  align-items: center;
 }
-.testi- img {
+.testi-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -728,7 +714,7 @@ a {
 .review-card:hover {
   box-shadow: 0 0 12px 4px rgba(131, 128, 27, 0.9);
 }
-.review-img > img {
+.reviewer-img > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -871,6 +857,13 @@ a {
     font-size: 34px;
   }
 
+  .title-5 {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
   .nav-items {
     display: none;
   }
@@ -906,6 +899,60 @@ a {
   .services-image {
     margin-top: 20px;
   }
+
+  .top-row {
+    flex-wrap: wrap;
+  }
+  .testi-card {
+    display: flex;
+  }
+  .col-50 {
+    width: 100%;
+  }
+  .first-card {
+    margin: 80px 29px 30px 0;
+  }
+  .second-card {
+    margin: 80px 0 30px;
+  }
+  .testi-text {
+    text-align: center;
+  }
+  .testi-text > .title-2 {
+    text-align: center;
+    max-width: 690px;
+  }
+  .testi-img {
+    max-width: 100%;
+    min-height: auto;
+    margin-bottom: 40px;
+  }
+
+  .testimonial-card {
+    padding: 20px;
+    width: 50%;
+  }
+  .left-col,
+  .right-col {
+    width: 50%;
+  }
+  .predestined-wrapper {
+    padding: 40px 35px;
+  }
+
+  .testimonial-content {
+    padding: 80px 35px 20px;
+  }
+
+  .inner-sec {
+    padding: 26px 30px;
+  }
+  .left-col {
+    padding: 0 15px;
+  }
+  .right-col {
+    padding: 0 15px 12px;
+  }
 }
 @media screen and (max-width: 860px) {
   .title-1 {
@@ -917,6 +964,26 @@ a {
     font-size: 18px;
     margin-bottom: 36px;
     max-width: 90%;
+  }
+  .testi-card {
+    display: block;
+  }
+  .testimonial-card {
+    width: 100%;
+  }
+  .left-col,
+  .right-col {
+    width: 100%;
+  }
+
+  .first-card {
+    margin: 50px 0 15px;
+  }
+  .second-card {
+    margin-top: 20px;
+  }
+  .card-row {
+    margin: 30px -15px 12px;
   }
 }
 @media screen and (max-width: 750px) {
@@ -942,7 +1009,7 @@ a {
   /* ==Banner-sec== */
   .banner-sec {
     padding: 60px 0;
-    min-height: auto;
+    min-height: 100vh;
   }
 
   .banner-content {
@@ -1003,5 +1070,25 @@ a {
   .secondary-btn span {
     justify-content: center;
     width: 100%;
+  }
+  .title-2 {
+    font-size: 26px;
+  }
+
+  .testimonial-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .testi-card-content {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  .star {
+    top: -10px;
+    right: -10px;
+    width: 30px;
   }
 }
