@@ -1078,6 +1078,10 @@ hr {
   .margin-row {
     margin: 0 0 30px 10px;
   }
+  .margin-row {
+    display: flex;
+    align-items: end;
+  }
 
   .row-align {
     border-radius: 40px;
@@ -1157,11 +1161,19 @@ hr {
   .footer-content .col-4:first-child {
     width: 50%;
   }
+  .footer-content .col-4:last-child {
+    width: 100%;
+    text-align: center;
+  }
   .footer-content .col-2 {
     width: 25%;
   }
-  .last-line  {
+  .last-line {
     display: inline;
+  }
+  .last-col .footer-line {
+    display: block;
+    margin-top: 20px;
   }
 }
 @media screen and (max-width: 860px) {
