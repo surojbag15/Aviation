@@ -539,10 +539,6 @@ a {
 
 /*=============* Services Section *================ */
 
-.services-wrapper {
-  overflow: visible;
-}
-
 .services-row {
   padding: 74px 80px;
   border: 2px solid #27220d;
@@ -600,6 +596,18 @@ a {
   font-family: var(--medium);
   font-size: 22px;
   text-transform: capitalize;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+.table-hdr::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--yellow-text);
 }
 .table-data {
   color: var(--white-text);
@@ -873,6 +881,143 @@ a {
   right: 150px;
   bottom: 40px;
 }
+
+/* ======================footer Section================= */
+.footer-content {
+  padding: 68px 0;
+}
+.footer-content > .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer-content img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.footer-text {
+  margin: 43px 0 73px;
+}
+.footer-text,
+.phone a,
+.footer-line {
+  display: flex;
+  align-items: center;
+  color: var(--white-text);
+  font-family: var(--font-Grotesk-Regular);
+  text-transform: capitalize;
+  font-size: 22px;
+  font-weight: 50;
+}
+
+.footer-links {
+  font-family: var(--font-Grotesk-Regular);
+  color: var(--white-text);
+  font-size: 20px;
+  text-transform: capitalize;
+  position: relative;
+  padding: 4px 8px;
+  transition: 0.3s linear;
+}
+.footer-links:hover {
+  color: var(--yellow-text);
+}
+.footer-items:not(:last-child) {
+  margin-bottom: 20px;
+}
+.phone svg {
+  margin-right: 8px;
+}
+
+.subscribe-box {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  border: 2px solid var(--yellow-text);
+  border-radius: 20px;
+  background: var(--black);
+  margin-top: 23px;
+}
+
+.subscribe-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 14px 18px;
+  font-size: 16px;
+  color: var(--white-text);
+}
+
+.subscribe-box input::placeholder {
+  color: var(--white-text);
+}
+
+.subscribe-box button {
+  border: none;
+  padding: 12px 26px;
+  border-radius: 16px;
+  background: var(--yellow-text);
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe-box button:hover {
+  background: #e6d95a;
+}
+.social-icon {
+  margin: 104px 0 38px 0;
+  display: flex;
+  justify-content: end;
+}
+.last-col {
+  display: inline-block;
+  justify-content: end;
+}
+.location {
+  display: flex;
+  justify-content: end;
+  color: var(--white-text);
+  font-family: var(--font-Grotesk-Regular);
+  text-transform: capitalize;
+  font-size: 22px;
+  font-weight: 50;
+}
+.location a {
+  color: var(--white-text);
+  padding: 0 10px;
+  position: relative;
+}
+
+.location a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 20px;
+  background-color: var(--yellow-text);
+}
+.location a:last-child::after {
+  display: none;
+}
+
+.location a:last-child {
+  padding-right: 0;
+}
+.location a:first-child {
+  padding-left: 0;
+}
+
+hr {
+  border: 1px solid var(--yellow-text);
+  margin: 30px 0;
+}
+
 /* ======================MEDIA SCREEN================= */
 
 @media screen and (max-width: 1200px) {
@@ -1009,6 +1154,15 @@ a {
   .form-card {
     margin: 0 auto;
   }
+  .footer-content .col-4:first-child {
+    width: 50%;
+  }
+  .footer-content .col-2 {
+    width: 25%;
+  }
+  .last-line  {
+    display: inline;
+  }
 }
 @media screen and (max-width: 860px) {
   /* =Banner Section= */
@@ -1071,6 +1225,9 @@ a {
   .dreamer-video {
     padding: 17px 20px 17px 20px;
   }
+  .predestined-wrapper {
+    padding: 15px 10px;
+  }
   /* =Offer Section= */
   .margin-row {
     display: none;
@@ -1097,6 +1254,9 @@ a {
 
   .table-data {
     font-size: 18px;
+  }
+  .description {
+    font-size: 14px;
   }
 }
 
@@ -1134,6 +1294,7 @@ a {
     justify-content: center;
     width: 100%;
   }
+
   /* ==Dreamer-sec== */
   .dreamer-video {
     padding: 11px 14px 11px 14px;
@@ -1179,6 +1340,9 @@ a {
   .title-2 {
     font-size: 26px;
   }
+  .right-col {
+    display: none;
+  }
   /* =Predestined Section= */
   .testimonial-card {
     flex-direction: column;
@@ -1195,5 +1359,27 @@ a {
     top: -10px;
     right: -10px;
     width: 30px;
+  }
+  .form-section {
+    padding: 20px;
+  }
+  .form-card {
+    padding: 0 22px 32px;
+  }
+  .footer-content .col-4:first-child {
+    width: 100%;
+  }
+  .phone {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  .footer-content .col-4,
+  .footer-content .col-2 {
+    width: 100%;
+    text-align: center;
+  }
+  .last-col {
+    margin-top: 10px;
   }
 }
